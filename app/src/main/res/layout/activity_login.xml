@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_gradient"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/ivEyeLogo"
+        android:layout_width="@dimen/splash_logo_size"
+        android:layout_height="@dimen/splash_logo_size"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/eye_logo" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/default_25_dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etLogin"
+            android:layout_width="@dimen/default_250_dp"
+            android:layout_height="@dimen/default_40_dp"
+            android:layout_gravity="center"
+            android:background="@color/edit_text_default_background"
+            android:drawableLeft="@drawable/ic_action_user"
+            android:drawableStart="@drawable/ic_action_user"
+            android:hint="@string/text_login_email"
+            android:inputType="textEmailAddress"
+            android:textSize="@dimen/default_16_sp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="@dimen/default_250_dp"
+            android:layout_height="@dimen/default_40_dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_16_dp"
+            android:background="@color/edit_text_default_background"
+            android:drawableLeft="@drawable/ic_action_password"
+            android:drawableStart="@drawable/ic_action_password"
+            android:hint="@string/text_login_password"
+            android:inputType="textPassword"
+            android:textSize="@dimen/default_16_sp"
+            tools:text="Password" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/default_60_dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btLogin"
+            android:layout_width="@dimen/default_200_dp"
+            android:layout_height="@dimen/default_50_dp"
+            android:background="@drawable/default_button_round_corners"
+            android:hint="@string/text_login_login"
+            android:textColorHint="@color/text_view_default_text_color" />
+
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_25_dp"
+            android:text="@string/text_login_register"
+            android:textColor="@color/text_view_default_text_color" />
+
+    </LinearLayout>
+
+</LinearLayout>
