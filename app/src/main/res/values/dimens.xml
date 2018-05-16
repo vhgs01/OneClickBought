@@ -2,16 +2,22 @@
     <dimen name="default_250_dp">250dp</dimen>
     <dimen name="default_200_dp">200dp</dimen>
     <dimen name="default_150_dp">150dp</dimen>
+    <dimen name="default_100_dp">100dp</dimen>
     <dimen name="default_60_dp">60dp</dimen>
     <dimen name="default_50_dp">50dp</dimen>
     <dimen name="default_40_dp">40dp</dimen>
     <dimen name="default_25_dp">25dp</dimen>
+    <dimen name="default_20_dp">20dp</dimen>
     <dimen name="default_18_dp">18dp</dimen>
     <dimen name="default_16_dp">16dp</dimen>
     <dimen name="default_10_dp">10dp</dimen>
+    <dimen name="default_6_dp">6dp</dimen>
+    <dimen name="default_4_dp">4dp</dimen>
+    <dimen name="default_2_dp">2dp</dimen>
 
     <dimen name="default_18_sp">18sp</dimen>
     <dimen name="default_16_sp">16sp</dimen>
+    <dimen name="default_12_sp">12sp</dimen>
 
     <dimen name="splash_logo_size">250dp</dimen>
 

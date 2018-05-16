@@ -1,4 +1,4 @@
-package br.com.hugo.victor.oneclickbought;
+package br.com.hugo.victor.oneclickbought.ui;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import br.com.hugo.victor.oneclickbought.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

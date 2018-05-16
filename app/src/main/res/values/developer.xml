@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="developer_name" translatable="false">
+        <item>Victor Hugo</item>
+    </string-array>
+
+    <string-array name="developer_linkedin" translatable="false">
+        <item>victor-hugo-garcia-da-silva-15729768</item>
+    </string-array>
+
+    <string-array name="developer_desc">
+        <item>@string/text_business_load</item>
+    </string-array>
+</resources>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/main_gradient"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".ui.LoginActivity">
 
     <ImageView
         android:id="@+id/ivEyeLogo"
@@ -63,6 +63,7 @@
             android:layout_height="@dimen/default_50_dp"
             android:background="@drawable/default_button_round_corners"
             android:hint="@string/text_login_login"
+            android:onClick="doLogin"
             android:textColorHint="@color/text_view_default_text_color" />
 
         <TextView
