@@ -8,11 +8,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseUser;
+
 import br.com.hugo.victor.oneclickbought.R;
+import br.com.hugo.victor.oneclickbought.util.Firebase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SplashActivity extends AppCompatActivity {
+
+    private Firebase firebase = new Firebase();
 
     @BindView(R.id.ivEyeLogo)
     ImageView ivEyeLogo;
@@ -58,8 +63,16 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void jumpToListActivity() {
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
-        finish();
+        FirebaseUser currentUser = firebase.isUserCurrentlySignedIn();
+
+        if (currentUser != null) {
+            Intent intent = new Intent(getApplicationContext(), ListProductsActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

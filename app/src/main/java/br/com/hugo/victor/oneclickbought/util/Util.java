@@ -1,6 +1,5 @@
 package br.com.hugo.victor.oneclickbought.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,8 +7,6 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 
 import java.util.List;
-
-import br.com.hugo.victor.oneclickbought.ui.ListProductsActivity;
 
 public class Util {
 
@@ -27,5 +24,4 @@ public class Util {
 
         context.startActivity(intent);
     }
-
 }

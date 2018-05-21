@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="default_350_dp">350dp</dimen>
     <dimen name="default_250_dp">250dp</dimen>
     <dimen name="default_200_dp">200dp</dimen>
     <dimen name="default_150_dp">150dp</dimen>

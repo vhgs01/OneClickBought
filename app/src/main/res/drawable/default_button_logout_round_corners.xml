@@ -2,20 +2,20 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/default_40_dp" />
-            <solid android:color="@color/button_login_pressed" />
+            <corners android:radius="@dimen/default_20_dp" />
+            <solid android:color="@color/button_logout_pressed" />
         </shape>
     </item>
     <item android:state_focused="true">
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/default_40_dp" />
-            <solid android:color="@color/button_login_default" />
+            <corners android:radius="@dimen/default_20_dp" />
+            <solid android:color="@color/button_logout_default" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/default_40_dp" />
-            <solid android:color="@color/button_login_default" />
+            <corners android:radius="@dimen/default_20_dp" />
+            <solid android:color="@color/button_logout_default" />
         </shape>
     </item>
 </selector>

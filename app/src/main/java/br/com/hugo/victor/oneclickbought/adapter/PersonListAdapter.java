@@ -102,7 +102,8 @@ public class PersonListAdapter extends RecyclerView.Adapter {
 
                 Util.openLinkedinProfile(mContext, mLinkedins[position]);
             } catch (Exception error) {
-                Log.e("Error", "Error at openLinkedInProfile in " + getClass().getName() + ". " + error.getMessage());
+                Log.e("Error", "Error at openLinkedInProfile in " + getClass().getName()
+                        + ". " + error.getMessage());
             }
         }
     }

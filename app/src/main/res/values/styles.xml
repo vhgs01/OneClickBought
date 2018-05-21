@@ -22,4 +22,12 @@
         <item name="android:layout_marginBottom">@dimen/default_20_dp</item>
     </style>
 
+    <style name="tiColors">
+        <item name="android:textColorHint">@color/text_view_default_text_color</item>
+        <item name="android:textSize">@dimen/default_18_sp</item>
+        <item name="colorAccent">@color/text_view_default_text_color</item>
+        <item name="colorControlNormal">@color/text_view_default_text_color</item>
+        <item name="colorControlActivated">@color/text_view_default_text_color</item>
+    </style>
+
 </resources>

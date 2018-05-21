@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_gradient"
+    android:orientation="vertical"
+    tools:context=".ui.LoginActivity">
+
+    <ImageView
+        android:id="@+id/ivEyeLogo"
+        android:layout_width="@dimen/splash_logo_size"
+        android:layout_height="@dimen/splash_logo_size"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/eye_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/default_25_dp"
+        android:layout_marginRight="@dimen/default_25_dp"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_40_dp"
+            android:theme="@style/tiColors">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tiEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/text_view_default_text_color" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/tiColors">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tiEmailConfirmation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_email_confirmation"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/text_view_default_text_color" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_16_dp"
+            android:theme="@style/tiColors">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tiPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_password"
+                android:inputType="textPassword"
+                android:textColor="@color/text_view_default_text_color" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/tiColors">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tiPasswordConfirmation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_password_confirmation"
+                android:inputType="textPassword"
+                android:textColor="@color/text_view_default_text_color" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvPasswordConfirmationIncorrect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_help_password"
+            android:textColor="@color/button_logout_pressed"
+            android:textSize="@dimen/default_16_sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvHelpPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_help_password"
+            android:textColor="@color/text_view_default_text_color"
+            android:textSize="@dimen/default_12_sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btRegister"
+        android:layout_width="@dimen/default_200_dp"
+        android:layout_height="@dimen/default_50_dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/default_25_dp"
+        android:background="@drawable/default_button_round_corners"
+        android:hint="@string/text_login_register"
+        android:textColorHint="@color/text_view_default_text_color" />
+
+</LinearLayout>

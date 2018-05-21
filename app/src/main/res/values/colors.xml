@@ -5,8 +5,11 @@
     <color name="colorAccent">#3fc330</color>
     <color name="button_login_default">#3fc330</color>
     <color name="button_login_pressed">#36af29</color>
+    <color name="button_logout_default">#ff4d4d</color>
+    <color name="button_logout_pressed">#fe1f1f</color>
     <color name="edit_text_default_background">#11000000</color>
     <color name="text_view_default_text_color">#fff</color>
     <color name="colorGray0">#F5F5F5</color>
     <color name="colorGray2">#616161</color>
+    <color name="colorBlack">#000000</color>
 </resources>
