@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import br.com.hugo.victor.oneclickbought.R;
-import br.com.hugo.victor.oneclickbought.ui.ListProductsActivity;
+import br.com.hugo.victor.oneclickbought.ui.MainActivity;
 
 public class Firebase {
 
@@ -60,7 +60,7 @@ public class Firebase {
 
     private void updateUi(Context context, FirebaseUser user) {
         if (user != null) {
-            Intent intent = new Intent(context, ListProductsActivity.class);
+            Intent intent = new Intent(context, MainActivity.class);
             context.startActivity(intent);
         }
     }

@@ -1,5 +1,8 @@
 package br.com.hugo.victor.oneclickbought.ui;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,11 +10,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import br.com.hugo.victor.oneclickbought.R;
 import br.com.hugo.victor.oneclickbought.fragment.AboutFragment;
+import br.com.hugo.victor.oneclickbought.util.Util;
 
-public class ListProductsActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
+
+    private static final int REQUEST_PHONE_CALL = 1;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -42,6 +49,28 @@ public class ListProductsActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        String numberFormatted = Util.getPhoneNumberFormatted(
+                getString(R.string.text_developer_phone_number));
+
+        switch (requestCode) {
+            case REQUEST_PHONE_CALL: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager
+                        .PERMISSION_GRANTED) {
+                    startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:" +
+                            numberFormatted)));
+                } else {
+                    Toast.makeText(this, R.string.text_permission_required_to_call,
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 
 }

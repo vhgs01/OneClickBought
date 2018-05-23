@@ -21,5 +21,8 @@
     <string name="text_password_different">The password need be equals password confirmation</string>
     <string name="text_email_is_empty">Please type email and email confirmation</string>
     <string name="text_email_different">The email need be equals email confirmation</string>
+    <string name="text_developer_phone_number">(11) 96400–0798</string>
+    <string name="text_permission_required_to_call">Permission required to call</string>
+    <string name="text_contact_us">Contact me by the number below:</string>
 
 </resources>

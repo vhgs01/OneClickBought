@@ -67,10 +67,25 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/default_20_dp"
+                    android:layout_marginBottom="@dimen/default_10_dp"
                     android:layout_marginTop="@dimen/default_10_dp"
                     android:gravity="center"
                     android:text="@string/text_developed" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/text_contact_us" />
+
+                <TextView
+                    android:id="@+id/tvDeveloperPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/default_20_dp"
+                    android:gravity="center"
+                    tools:text="@string/text_developer_phone_number"
+                    android:textColor="@color/colorPrimary" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rvDevelopedBy"
