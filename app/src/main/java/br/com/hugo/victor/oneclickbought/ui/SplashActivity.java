@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private Firebase firebase = new Firebase();
+    private Firebase.Auth auth = new Firebase.Auth();
 
     @BindView(R.id.ivEyeLogo)
     ImageView ivEyeLogo;
@@ -63,7 +63,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void jumpToListActivity() {
-        FirebaseUser currentUser = firebase.isUserCurrentlySignedIn();
+        FirebaseUser currentUser = auth.isUserCurrentlySignedIn();
 
         if (currentUser != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);

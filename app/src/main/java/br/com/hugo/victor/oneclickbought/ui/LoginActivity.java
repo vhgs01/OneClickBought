@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Firebase firebase = new Firebase();
+    private Firebase.Auth auth = new Firebase.Auth();
 
     @BindView(R.id.tiLogin)
     EditText tiLogin;
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        FirebaseUser user = firebase.isUserCurrentlySignedIn();
+        FirebaseUser user = auth.isUserCurrentlySignedIn();
 
         if (user != null) {
             finish();
@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        FirebaseUser user = firebase.isUserCurrentlySignedIn();
+        FirebaseUser user = auth.isUserCurrentlySignedIn();
 
         if (user != null) {
             finish();
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.text_login_or_password_is_empty,
                     Toast.LENGTH_SHORT).show();
         } else {
-            firebase.signIn(this, login, password);
+            auth.signIn(this, login, password);
         }
     }
 

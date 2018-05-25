@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 
 public class AboutFragment extends Fragment {
 
-    private Firebase firebase = new Firebase();
+    private Firebase.Auth auth = new Firebase.Auth();
 
     @BindView(R.id.rvDevelopedBy)
     RecyclerView rvDevelopedBy;
@@ -76,8 +76,8 @@ public class AboutFragment extends Fragment {
     }
 
     private void doLogout() {
-        firebase.logOut();
-        FirebaseUser user = firebase.isUserCurrentlySignedIn();
+        auth.logOut();
+        FirebaseUser user = auth.isUserCurrentlySignedIn();
 
         if (user == null) {
             Intent intent = new Intent(getContext(), LoginActivity.class);

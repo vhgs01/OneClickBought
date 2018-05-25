@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Firebase firebase = new Firebase();
+    private Firebase.Auth auth = new Firebase.Auth();
 
     @BindView(R.id.tiEmail)
     TextInputEditText tiEmail;
@@ -102,6 +102,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerNewAccount(Context context, String email, String password) {
-        firebase.signUp(context, email, password);
+        auth.signUp(context, email, password);
     }
 }
