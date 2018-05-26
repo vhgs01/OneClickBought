@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import br.com.hugo.victor.oneclickbought.R;
-import br.com.hugo.victor.oneclickbought.ui.MainActivity;
+import br.com.hugo.victor.oneclickbought.ui.activity.MainActivity;
 
 public class Firebase {
 

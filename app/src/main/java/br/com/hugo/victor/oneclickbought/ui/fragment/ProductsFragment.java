@@ -1,4 +1,4 @@
-package br.com.hugo.victor.oneclickbought.fragment;
+package br.com.hugo.victor.oneclickbought.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.arch.persistence.room.Room;

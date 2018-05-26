@@ -1,4 +1,4 @@
-package br.com.hugo.victor.oneclickbought.ui;
+package br.com.hugo.victor.oneclickbought.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,9 +19,9 @@ import android.widget.Toast;
 
 
 import br.com.hugo.victor.oneclickbought.R;
-import br.com.hugo.victor.oneclickbought.fragment.AboutFragment;
-import br.com.hugo.victor.oneclickbought.fragment.AddProductFragment;
-import br.com.hugo.victor.oneclickbought.fragment.ProductsFragment;
+import br.com.hugo.victor.oneclickbought.ui.fragment.AboutFragment;
+import br.com.hugo.victor.oneclickbought.ui.fragment.AddProductFragment;
+import br.com.hugo.victor.oneclickbought.ui.fragment.ProductsFragment;
 import br.com.hugo.victor.oneclickbought.util.Util;
 import butterknife.BindView;
 import butterknife.ButterKnife;

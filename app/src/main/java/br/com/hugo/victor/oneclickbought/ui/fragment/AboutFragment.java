@@ -1,4 +1,4 @@
-package br.com.hugo.victor.oneclickbought.fragment;
+package br.com.hugo.victor.oneclickbought.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import br.com.hugo.victor.oneclickbought.R;
 import br.com.hugo.victor.oneclickbought.adapter.PersonListAdapter;
-import br.com.hugo.victor.oneclickbought.ui.LoginActivity;
+import br.com.hugo.victor.oneclickbought.ui.activity.LoginActivity;
 import br.com.hugo.victor.oneclickbought.util.Firebase;
 import br.com.hugo.victor.oneclickbought.util.Util;
 import butterknife.BindView;

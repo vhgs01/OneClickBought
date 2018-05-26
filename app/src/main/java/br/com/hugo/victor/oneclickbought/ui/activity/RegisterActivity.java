@@ -1,4 +1,4 @@
-package br.com.hugo.victor.oneclickbought.ui;
+package br.com.hugo.victor.oneclickbought.ui.activity;
 
 import android.content.Context;
 import android.support.design.widget.TextInputEditText;
