@@ -1,7 +1,6 @@
 package br.com.hugo.victor.oneclickbought.data.dao;
 
 import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
@@ -13,13 +12,13 @@ import br.com.hugo.victor.oneclickbought.data.model.ProductDB;
 public interface ProductDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertProduct(ProductDB productDB);
+    long insertProduct(ProductDB productDB);
 
     @Update(onConflict = OnConflictStrategy.ROLLBACK)
     void updateProduct(ProductDB productDB);
 
-    @Delete
-    void deleteProductCart(ProductDB productDB);
+    @Query("DELETE FROM product WHERE productName = :name")
+    int deleteProductCart(String name);
 
     @Query("SELECT * FROM product")
     ProductDB[] showProducts();

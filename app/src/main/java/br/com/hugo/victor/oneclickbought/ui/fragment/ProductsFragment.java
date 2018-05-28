@@ -26,6 +26,11 @@ import butterknife.ButterKnife;
 
 public class ProductsFragment extends Fragment {
 
+    private View mViewInflated;
+    private LayoutInflater mInflater;
+    private ViewGroup mContainer;
+    private Context mContext;
+
     @BindView(R.id.rvProducts)
     RecyclerView rvProducts;
 
@@ -33,11 +38,20 @@ public class ProductsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View viewInflated = inflater.inflate(R.layout.fragment_products, container, false);
+         mViewInflated = inflater.inflate(R.layout.fragment_products, container, false);
+         mInflater = inflater;
+         mContainer = container;
+         mContext = getContext();
 
-        ButterKnife.bind(this, viewInflated);
+        ButterKnife.bind(this, mViewInflated);
 
-        showAllProducts productsTask = new showAllProducts(getContext());
+        showAll();
+
+        return mViewInflated;
+    }
+
+    private void showAll() {
+        showAllProductsTask productsTask = new showAllProductsTask();
         ProductDB[] result = new ProductDB[0];
 
         try {
@@ -49,27 +63,23 @@ public class ProductsFragment extends Fragment {
         }
 
         if (result.length > 0) {
-            ProductAdapter mProductAdapter = new ProductAdapter(getContext(), result);
+            ProductAdapter mProductAdapter = new ProductAdapter(mContext, result, this.getActivity());
 
-            rvProducts.setLayoutManager(new LinearLayoutManager(getContext(),
+            rvProducts.setLayoutManager(new LinearLayoutManager(mContext,
                     LinearLayoutManager.VERTICAL, false));
-            rvProducts.addItemDecoration(new DividerItemDecoration(getContext(),
+            rvProducts.addItemDecoration(new DividerItemDecoration(mContext,
                     LinearLayoutManager.VERTICAL));
             rvProducts.setAdapter(mProductAdapter);
         } else {
-            viewInflated = inflater.inflate(R.layout.fragment_empty_list, container, false);
+            mViewInflated = mInflater.inflate(R.layout.fragment_empty_list, mContainer,
+                    false);
         }
-
-        return viewInflated;
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class showAllProducts extends AsyncTask<Void, Void, ProductDB[]> {
-        private Context mContext;
+    public class showAllProductsTask extends AsyncTask<Void, Void, ProductDB[]> {
 
-        private showAllProducts(Context context) {
-            this.mContext = context;
-        }
+        private showAllProductsTask() {}
 
         @Override
         protected ProductDB[] doInBackground(Void... voids) {
