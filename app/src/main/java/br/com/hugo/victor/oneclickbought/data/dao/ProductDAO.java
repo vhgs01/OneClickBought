@@ -20,8 +20,8 @@ public interface ProductDAO {
     @Query("DELETE FROM product WHERE productName = :name")
     int deleteProductCart(String name);
 
-    @Query("SELECT * FROM product")
-    ProductDB[] showProducts();
+    @Query("SELECT * FROM product WHERE userId = :userId")
+    ProductDB[] showProducts(String userId);
 
     @Query("SELECT * from product WHERE productName = :name")
     ProductDB showProductByName(String name);

@@ -21,10 +21,13 @@ import br.com.hugo.victor.oneclickbought.R;
 import br.com.hugo.victor.oneclickbought.adapter.ProductAdapter;
 import br.com.hugo.victor.oneclickbought.data.model.DatabaseOneClickBought;
 import br.com.hugo.victor.oneclickbought.data.model.ProductDB;
+import br.com.hugo.victor.oneclickbought.util.Firebase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ProductsFragment extends Fragment {
+
+    private Firebase.Auth auth = new Firebase.Auth();
 
     private View mViewInflated;
     private LayoutInflater mInflater;
@@ -51,7 +54,8 @@ public class ProductsFragment extends Fragment {
     }
 
     private void showAll() {
-        showAllProductsTask productsTask = new showAllProductsTask();
+        showAllProductsTask productsTask = new showAllProductsTask(auth.isUserCurrentlySignedIn()
+                .getUid());
         ProductDB[] result = new ProductDB[0];
 
         try {
@@ -78,14 +82,17 @@ public class ProductsFragment extends Fragment {
 
     @SuppressLint("StaticFieldLeak")
     public class showAllProductsTask extends AsyncTask<Void, Void, ProductDB[]> {
+        private String mUserId;
 
-        private showAllProductsTask() {}
+        private showAllProductsTask(String userId) {
+            this.mUserId = userId;
+        }
 
         @Override
         protected ProductDB[] doInBackground(Void... voids) {
             DatabaseOneClickBought db = Room.databaseBuilder(mContext, DatabaseOneClickBought.class,
                     "product").build();
-            return db.productDAO().showProducts();
+            return db.productDAO().showProducts(mUserId);
         }
     }
 }
