@@ -31,5 +31,8 @@
     <string name="text_add">Add</string>
     <string name="text_request_permission_for_camera">Permission required to take a picture</string>
     <string name="text_select_image">Select an image</string>
+    <string name="text_location_permission_required">Permission required to save product location</string>
+    <string name="text_location_permission_granted">Now you can save the product</string>
+    <string name="text_all_fields_required">All fields are required</string>
 
 </resources>

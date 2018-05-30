@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 
@@ -16,6 +18,7 @@ import static android.support.v4.app.ActivityCompat.requestPermissions;
 public class Util {
 
     private static final int REQUEST_PHONE_CALL = 1;
+    private static final int REQUEST_LOCATION = 2;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     private static final int CAMERA_REQUEST = 1888;
 
@@ -53,6 +56,23 @@ public class Util {
         } else {
             Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
             activity.startActivityForResult(cameraIntent, CAMERA_REQUEST);
+        }
+    }
+
+    public static Location checkPermissionLocation(Activity activity, Context context) {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_LOCATION);
+            return null;
+        } else {
+            LocationManager mLocationManager = (LocationManager) context.getSystemService(
+                    Context.LOCATION_SERVICE);
+            if (mLocationManager != null) {
+                return mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            } else {
+                return null;
+            }
         }
     }
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -65,40 +66,48 @@ public class AddProductFragment extends Fragment {
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!verifyBlankFields()) {
-                    Toast.makeText(getContext(), "All fields are required", Toast.LENGTH_LONG)
-                            .show();
-                } else {
-                    ProductDB productDB = new ProductDB();
+                Location location = Util.checkPermissionLocation(getActivity(), getContext());
 
-                    productDB.setProductPhoto(imageToByte());
-                    productDB.setUserId(mUserId);
-                    productDB.setProductName(tiProductName.getText().toString());
-                    productDB.setProductDescription(tiProductDescription.getText().toString());
-                    productDB.setLatitude("000");
-                    productDB.setLongitude("000");
-
-                    insertProduct task = new insertProduct(getContext(), productDB);
-
-                    Long result = 0L;
-                    try {
-                        result = task.execute().get();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
-
-                    if (result > 0) {
-                        Intent intent = new Intent(mContext, MainActivity.class);
-                        mContext.startActivity(intent);
-                        getActivity().finish();
+                if (location != null) {
+                    if (!verifyBlankFields()) {
+                        Toast.makeText(getContext(), R.string.text_all_fields_required,
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        addProduct(location);
                     }
                 }
             }
         });
 
         return viewInflated;
+    }
+
+    private void addProduct(Location location) {
+        ProductDB productDB = new ProductDB();
+
+        productDB.setProductPhoto(imageToByte());
+        productDB.setUserId(mUserId);
+        productDB.setProductName(tiProductName.getText().toString());
+        productDB.setProductDescription(tiProductDescription.getText().toString());
+        productDB.setLatitude(String.valueOf(location.getLatitude()));
+        productDB.setLongitude(String.valueOf(location.getLongitude()));
+
+        insertProduct task = new insertProduct(getContext(), productDB);
+
+        Long result = 0L;
+        try {
+            result = task.execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        if (result > 0) {
+            Intent intent = new Intent(mContext, MainActivity.class);
+            mContext.startActivity(intent);
+            getActivity().finish();
+        }
     }
 
     public void setImage(Bitmap photo) {

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabAdd;
 
     private static final int REQUEST_PHONE_CALL = 1;
+    private static final int REQUEST_LOCATION = 2;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     private static final int CAMERA_REQUEST = 1888;
 
@@ -121,6 +122,16 @@ public class MainActivity extends AppCompatActivity {
                     startActivityForResult(cameraIntent, CAMERA_REQUEST);
                 } else {
                     Toast.makeText(this, R.string.text_request_permission_for_camera,
+                            Toast.LENGTH_LONG).show();
+                }
+                break;
+            }
+            case REQUEST_LOCATION: {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, R.string.text_location_permission_granted,
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, R.string.text_location_permission_required,
                             Toast.LENGTH_LONG).show();
                 }
                 break;
