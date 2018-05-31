@@ -21,6 +21,7 @@ import android.widget.Toast;
 import br.com.hugo.victor.oneclickbought.R;
 import br.com.hugo.victor.oneclickbought.ui.fragment.AboutFragment;
 import br.com.hugo.victor.oneclickbought.ui.fragment.AddProductFragment;
+import br.com.hugo.victor.oneclickbought.ui.fragment.MapsFragment;
 import br.com.hugo.victor.oneclickbought.ui.fragment.ProductsFragment;
 import br.com.hugo.victor.oneclickbought.util.Util;
 import butterknife.BindView;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                     getProducts();
                     return true;
                 case R.id.navigation_dashboard:
+                    mFragment = new MapsFragment();
+                    changeFrame();
                     return true;
                 case R.id.nav_about:
                     fabAdd.setVisibility(View.GONE);
