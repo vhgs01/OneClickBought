@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_home">Início</string>
+    <string name="title_maps">Mapa</string>
+    <string name="text_about">Sobre</string>
+    <string name="text_email_confirmation">Confirme seu e-mail</string>
+    <string name="text_password">Senha</string>
+    <string name="text_password_confirmation">Confirme sua senha</string>
+    <string name="text_login_register">Registrar</string>
+    <string name="text_version">Versão 1.0 [Android]</string>
+    <string name="text_business_load">Líder Técnico | Desenvolvedor</string>
+    <string name="text_developed">Desenvolvido por Victor Hugo Garcia da Silva</string>
+    <string name="text_auth_failed">Falha na autenticação</string>
+    <string name="text_login_or_password_is_empty">Preencha os campos corretamente</string>
+    <string name="text_logout">Sair</string>
+    <string name="text_help_password">* Mínimo de 6 caracteres</string>
+    <string name="text_password_is_empty">Por favor digíte a senha e a confirmação de senha</string>
+    <string name="text_password_different">A senha precisa ser igual a confirmação de senha</string>
+    <string name="text_email_is_empty">Por favor digite o email e a confirmação de email</string>
+    <string name="text_email_different">O email precisa ser igual a confirmação de email</string>
+    <string name="text_permission_required_to_call">Permissão necessária para ligação</string>
+    <string name="text_contact_us">Contate-me pelo número a baixo:</string>
+    <string name="text_delete_product">Deletar</string>
+    <string name="text_empty_list">Lista de produtos fazia</string>
+    <string name="text_product_name">Nome do produto</string>
+    <string name="text_product_description">Descrição do produto</string>
+    <string name="text_add">Adicionar</string>
+    <string name="text_request_permission_for_camera">Permissão necessária para tirar uma foto</string>
+    <string name="text_select_image">Selecione uma imagem</string>
+    <string name="text_location_permission_required">Permissão necessária para salvar a locallização do produto</string>
+    <string name="text_location_permission_granted">Agora você pode salvar o produto</string>
+    <string name="text_all_fields_required">Todos os campos são necessários</string>
+    <string name="text_edit_product">Editar</string>
+    <string name="text_error_update_product">Tivemos um erro ao atualizar o produto</string>
+    <string name="text_loading_button">Carregando…</string>
+    <string name="text_share_profile">Compartilhar o perfil do desenvolvedor</string>
+    <string name="text_email">E-mail</string>
+    <string name="text_login_login">Login</string>
+    <string name="text_developer_name">Victor Hugo</string>
+    <string name="text_developer_phone_number">(11) 96400–0798</string>
+    <string name="app_name">OneClickBought</string>
+</resources>
