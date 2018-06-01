@@ -6,11 +6,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
+import android.widget.ImageView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 import static android.support.v4.app.ActivityCompat.requestPermissions;
@@ -79,6 +83,13 @@ public class Util {
     public static String getPhoneNumberFormatted(String number) {
         return number.replace("(", "").replace(")", "")
                 .replace("–", "").replaceAll("\\s", "");
+    }
+
+    public static byte[] imageToByte(ImageView photo) {
+        Bitmap bitmap = ((BitmapDrawable) photo.getDrawable()).getBitmap();
+        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArray);
+        return byteArray.toByteArray();
     }
 
 }

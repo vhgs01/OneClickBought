@@ -5,7 +5,6 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,7 +19,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
 import java.util.concurrent.ExecutionException;
 
 import br.com.hugo.victor.oneclickbought.R;
@@ -31,6 +29,8 @@ import br.com.hugo.victor.oneclickbought.util.Firebase;
 import br.com.hugo.victor.oneclickbought.util.Util;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static br.com.hugo.victor.oneclickbought.util.Util.imageToByte;
 
 public class AddProductFragment extends Fragment {
 
@@ -85,7 +85,7 @@ public class AddProductFragment extends Fragment {
     private void addProduct(Location location) {
         ProductDB productDB = new ProductDB();
 
-        productDB.setProductPhoto(imageToByte());
+        productDB.setProductPhoto(imageToByte(ivPhoto));
         productDB.setUserId(mUserId);
         productDB.setProductName(tiProductName.getText().toString());
         productDB.setProductDescription(tiProductDescription.getText().toString());
@@ -112,13 +112,6 @@ public class AddProductFragment extends Fragment {
 
     public void setImage(Bitmap photo) {
         ivPhoto.setImageBitmap(photo);
-    }
-
-    private byte[] imageToByte() {
-        Bitmap bitmap = ((BitmapDrawable) ivPhoto.getDrawable()).getBitmap();
-        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArray);
-        return byteArray.toByteArray();
     }
 
     public boolean verifyBlankFields() {

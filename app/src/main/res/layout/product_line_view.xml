@@ -46,13 +46,21 @@ This Is A Exmeple Of Lorem Ipsum, Lorem Ipsum Is The Most Popular Text Generator
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="0.6">
+        android:layout_weight="0.6"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/default_40_dp"
+            android:background="@drawable/button_borders_edit"
+            android:text="@string/text_edit_product" />
 
         <Button
             android:id="@+id/btDelete"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_borders"
+            android:layout_height="@dimen/default_40_dp"
+            android:background="@drawable/button_borders_del"
             android:text="@string/text_delete_product" />
 
     </LinearLayout>

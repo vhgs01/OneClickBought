@@ -15,7 +15,7 @@ public interface ProductDAO {
     long insertProduct(ProductDB productDB);
 
     @Update(onConflict = OnConflictStrategy.ROLLBACK)
-    void updateProduct(ProductDB productDB);
+    int updateProduct(ProductDB productDB);
 
     @Query("DELETE FROM product WHERE productName = :name")
     int deleteProductCart(String name);

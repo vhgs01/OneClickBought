@@ -3,10 +3,12 @@ package br.com.hugo.victor.oneclickbought.data.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 @Entity(tableName = "product")
-public class ProductDB {
+public class ProductDB implements Parcelable {
 
     @PrimaryKey
     @NonNull
@@ -88,4 +90,41 @@ public class ProductDB {
     public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.productName);
+        dest.writeString(this.userId);
+        dest.writeByteArray(this.productPhoto);
+        dest.writeString(this.productDescription);
+        dest.writeString(this.latitude);
+        dest.writeString(this.longitude);
+    }
+
+    protected ProductDB(Parcel in) {
+        this.productName = in.readString();
+        this.userId = in.readString();
+        this.productPhoto = in.createByteArray();
+        this.productDescription = in.readString();
+        this.latitude = in.readString();
+        this.longitude = in.readString();
+    }
+
+    public static final Creator<ProductDB> CREATOR = new Creator<ProductDB>() {
+        @Override
+        public ProductDB createFromParcel(Parcel source) {
+            return new ProductDB(source);
+        }
+
+        @Override
+        public ProductDB[] newArray(int size) {
+            return new ProductDB[size];
+        }
+    };
 }

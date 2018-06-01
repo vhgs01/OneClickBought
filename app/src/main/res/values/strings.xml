@@ -34,5 +34,8 @@
     <string name="text_location_permission_required">Permission required to save product location</string>
     <string name="text_location_permission_granted">Now you can save the product</string>
     <string name="text_all_fields_required">All fields are required</string>
+    <string name="text_edit_product">Edit</string>
+    <string name="text_error_update_product">We have an error to update the product</string>
+    <string name="text_loading_button">Loading…</string>
 
 </resources>

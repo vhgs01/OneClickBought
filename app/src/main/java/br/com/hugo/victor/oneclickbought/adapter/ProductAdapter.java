@@ -21,6 +21,7 @@ import java.util.concurrent.ExecutionException;
 import br.com.hugo.victor.oneclickbought.R;
 import br.com.hugo.victor.oneclickbought.data.model.DatabaseOneClickBought;
 import br.com.hugo.victor.oneclickbought.data.model.ProductDB;
+import br.com.hugo.victor.oneclickbought.ui.activity.EditProductActivity;
 import br.com.hugo.victor.oneclickbought.ui.activity.MainActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -77,6 +78,8 @@ public class ProductAdapter extends RecyclerView.Adapter {
         TextView tvProductDescription;
         @BindView(R.id.btDelete)
         Button btDelete;
+        @BindView(R.id.btEdit)
+        Button btEdit;
 
         public ProductHolder(View itemView) {
             super(itemView);
@@ -87,6 +90,13 @@ public class ProductAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View view) {
                     deleteProduct(tvProductName.getText().toString());
+                }
+            });
+
+            btEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    editProduct(tvProductName.getText().toString());
                 }
             });
         }
@@ -110,6 +120,26 @@ public class ProductAdapter extends RecyclerView.Adapter {
         }
     }
 
+    private void editProduct(String productName) {
+        ProductDB productDB = null;
+        boolean haveProduct = false;
+        editProductTask productTask = new editProductTask(mContext, productName);
+        try {
+            productDB = productTask.execute().get();
+            haveProduct = true;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        if (haveProduct) {
+            Intent intent = new Intent(mContext, EditProductActivity.class);
+            intent.putExtra("productDB", productDB);
+            mContext.startActivity(intent);
+        }
+    }
+
     @SuppressLint("StaticFieldLeak")
     public class deleteProductTask extends AsyncTask<Void, Void, Integer> {
         private Context mContext;
@@ -125,6 +155,23 @@ public class ProductAdapter extends RecyclerView.Adapter {
             DatabaseOneClickBought db = Room.databaseBuilder(mContext, DatabaseOneClickBought.class,
                     "product").build();
             return db.productDAO().deleteProductCart(productName);
+        }
+    }
+
+    public class editProductTask extends AsyncTask<Void, Void, ProductDB> {
+        private Context mContext;
+        private String productName;
+
+        public editProductTask(Context mContext, String productName) {
+            this.mContext = mContext;
+            this.productName = productName;
+        }
+
+        @Override
+        protected ProductDB doInBackground(Void... voids) {
+            DatabaseOneClickBought db = Room.databaseBuilder(mContext, DatabaseOneClickBought.class,
+                    "product").build();
+            return db.productDAO().showProductByName(productName);
         }
     }
 }
