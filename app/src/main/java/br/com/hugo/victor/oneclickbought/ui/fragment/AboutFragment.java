@@ -34,6 +34,8 @@ public class AboutFragment extends Fragment {
     Button btLogout;
     @BindView(R.id.tvDeveloperPhone)
     TextView tvDeveloperPhone;
+    @BindView(R.id.btShare)
+    Button btShare;
 
     @Nullable
     @Override
@@ -65,6 +67,13 @@ public class AboutFragment extends Fragment {
             }
         });
 
+        btShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                share();
+            }
+        });
+
         tvDeveloperPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +93,17 @@ public class AboutFragment extends Fragment {
             startActivity(intent);
             getActivity().finish();
         }
+    }
+
+    private void share() {
+        String textToShare = getActivity().getString(R.string.text_developed) + ". " +
+                getActivity().getString(R.string.text_contact_us) + "\n" +
+                getActivity().getString(R.string.text_developer_phone_number);
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, textToShare);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 
     private void call() {

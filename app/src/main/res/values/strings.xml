@@ -37,5 +37,6 @@
     <string name="text_edit_product">Edit</string>
     <string name="text_error_update_product">We have an error to update the product</string>
     <string name="text_loading_button">Loading…</string>
+    <string name="text_share_profile">Share developer profile</string>
 
 </resources>
