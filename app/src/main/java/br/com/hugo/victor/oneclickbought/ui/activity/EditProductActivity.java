@@ -60,8 +60,7 @@ public class EditProductActivity extends AppCompatActivity {
         ivPhotoEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                Util.checkPermissionCamera(mActivity, mContext);
             }
         });
 

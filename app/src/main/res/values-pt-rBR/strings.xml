@@ -21,7 +21,7 @@
     <string name="text_permission_required_to_call">Permissão necessária para ligação</string>
     <string name="text_contact_us">Contate-me pelo número a baixo:</string>
     <string name="text_delete_product">Deletar</string>
-    <string name="text_empty_list">Lista de produtos fazia</string>
+    <string name="text_empty_list">Lista de produtos vazia</string>
     <string name="text_product_name">Nome do produto</string>
     <string name="text_product_description">Descrição do produto</string>
     <string name="text_add">Adicionar</string>
@@ -37,6 +37,6 @@
     <string name="text_email">E-mail</string>
     <string name="text_login_login">Login</string>
     <string name="text_developer_name">Victor Hugo</string>
-    <string name="text_developer_phone_number">(11) 96400–0798</string>
+    <string name="text_developer_phone_number">(011) 96400–0798</string>
     <string name="app_name">OneClickBought</string>
 </resources>
